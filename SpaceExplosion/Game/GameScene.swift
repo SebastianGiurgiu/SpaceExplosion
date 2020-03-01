@@ -106,7 +106,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
          
         let alien = SKSpriteNode(imageNamed: possibleAliens[0])
         
-        let randomAlienPosition = GKRandomDistribution(lowestValue: 0, highestValue: 800)
+        let randomAlienPosition = GKRandomDistribution(lowestValue: 0, highestValue: 436)
         let position = CGFloat(randomAlienPosition.nextInt())
         
         alien.position = CGPoint(x: position, y: self.frame.size.height + alien.size.height)
@@ -170,7 +170,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
-        print("ciocnire elemente")
         var firstBody:SKPhysicsBody
         var secondBody:SKPhysicsBody
         
@@ -210,8 +209,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.livesArray.removeFirst()
         
             if self.livesArray.count == 0 {
-                // game over
-                print("E gata jocul")
+                
+                print("Din joc spre final")
+                print(self.size)
+                
+                let transation = SKTransition.flipHorizontal(withDuration: 0.5)
+                let gameOver = SKScene(fileNamed: "GameOverScene") as! GameOverScene
+                
+                //let gameOver = GameOverScene(size: self.size)
+                gameOver.score = self.score
+                
+                self.view?.presentScene(gameOver, transition: transation)
+                
                 }
             }
         

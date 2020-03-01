@@ -53,6 +53,7 @@ class MenuScene: SKScene {
             if nodesArray.first?.name == "newGameButton" {
                 let transation = SKTransition.flipHorizontal(withDuration: 0.5)
                 let gameScene = GameScene(size: self.size)
+                print("Din meniu spre joc")
                 print(self.size)
                 self.view?.presentScene(gameScene, transition: transation)
             } else if nodesArray.first?.name == "difficultyButton" {
