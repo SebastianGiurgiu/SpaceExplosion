@@ -31,6 +31,14 @@ class MenuScene: SKScene {
         
         difficultyLabelNode = self.childNode(withName: "difficultyLabel") as? SKLabelNode
         
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.bool(forKey: "hard") {
+            difficultyLabelNode.text = "Hard"
+        } else {
+            difficultyLabelNode.text = "Easy"
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -47,8 +55,28 @@ class MenuScene: SKScene {
                 let gameScene = GameScene(size: self.size)
                 print(self.size)
                 self.view?.presentScene(gameScene, transition: transation)
+            } else if nodesArray.first?.name == "difficultyButton" {
+                changeDifficulty()
             }
         }
     }
+    
+    func changeDifficulty() {
+        let userDefaults = UserDefaults.standard
+        
+        if difficultyLabelNode.text == "Easy" {
+            difficultyLabelNode.text = "Hard"
+            userDefaults.set(true, forKey: "hard")
+        } else {
+            difficultyLabelNode.text = "Easy"
+            userDefaults.set(false, forKey: "hard")
+        }
+        
+        userDefaults.synchronize()
+    }
+    
+    
+    
+    
     
 }

@@ -80,6 +80,15 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		CBBA02C2240BC387009BC34E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				CB122EC5240B1BCB00162207 /* MenuScene.sks */,
+				CB122EC9240B241C00162207 /* MenuScene.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		CBC1A303240A97C20037D33B = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +112,7 @@
 				CBC1A317240A97C20037D33B /* GameViewController.swift */,
 				CBC1A313240A97C20037D33B /* Actions.sks */,
 				CBC1A319240A97C20037D33B /* Main.storyboard */,
-				CB122EC5240B1BCB00162207 /* MenuScene.sks */,
-				CB122EC9240B241C00162207 /* MenuScene.swift */,
+				CBBA02C2240BC387009BC34E /* Menu */,
 				CB122EC3240B1B4500162207 /* Emitters */,
 				CB122EC2240B1B2300162207 /* Game */,
 				CB122EC4240B1B5A00162207 /* Sounds */,
